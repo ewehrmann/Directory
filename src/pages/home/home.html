@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <div align="center"><img src="https://hardermech.quickbase.com/up/big52bart/g/rcf/eg/va/PhoneDirectory.png" height="88" width="272" ></div>
+    <ion-title></ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-row class="filters">
+      <ion-col><button ion-button (click)="goToSlide(0)"><ion-icon name="arrow-back"></ion-icon></button></ion-col>
+      <ion-col col-8>
+      <ion-slides slidesPerView="9">
+      <ion-slide *ngFor="let letter of letters$"><button ion-button full outline (click)="filterList(letter.alpha[0])">{{letter.alpha}}</button></ion-slide>
+      </ion-slides>
+      </ion-col>
+      <ion-col><button ion-button (click)="goToSlide(25)"><ion-icon name="arrow-forward"></ion-icon></button></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6 text-right align-self-center> 
+          <ion-title>TOGGLE SEARCH:</ion-title>
+      </ion-col>
+      <ion-col col-6 text-left>
+            <button ion-button (click)="toggleFirst()" [ngStyle]="{'background-color': firstButtonColor}">First</button>
+            <button ion-button (click)="toggleLast()" [ngStyle]="{'background-color': lastButtonColor}">Last</button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-sliding *ngFor="let employee of employees$ | filter : letter : nameToggle ">
+        <ion-item person>
+          {{employee.phone_user_name }} - {{employee.mobile_phone }} <br> {{employee.title }} 
+          </ion-item>
+            <ion-item-options side="right">
+                <button ion-button color="secondary" (click)="call(employee.mobile_phone)">
+                    <ion-icon name="call"></ion-icon>
+                    Call
+                  </button>
+              <button ion-button color="primary" (click)="sendSms(employee.mobile_phone)">
+                <ion-icon name="text"></ion-icon>
+                Text
+              </button>
+            </ion-item-options>
+            <ion-item-options side="left">
+              <button ion-button color="dark" (click)="saveContact(employee.phone_user_name, employee.mobile_phone)">
+                  <ion-icon name="add"></ion-icon>
+                  Add to <br> Contacts
+                </button>
+          </ion-item-options>
+    </ion-item-sliding> 
+  </ion-list>
+
+  <button ion-button (click)="refreshData()">Refresh Data</button>
+  <button ion-button (click)="filterList('')">Clear Filter</button>
+</ion-content>

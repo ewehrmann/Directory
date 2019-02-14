@@ -1,0 +1,48 @@
+{  
+   "record":[  
+      {  
+         "phone_user_name":[  
+            "Erich Wehrmann"
+         ],
+         "wireless_number":[  
+            "(503) 505-4465"
+         ],
+         "title":[  
+            "Solution Architect"
+         ]
+      },
+      {  
+         "phone_user_name":[  
+            "Pat Wenger"
+         ],
+         "wireless_number":[  
+            "(503) 969-5648"
+         ],
+         "title":[  
+            "Project Controls Manager"
+         ]
+      },
+      {  
+         "phone_user_name":[  
+            "Brian Williams"
+         ],
+         "wireless_number":[  
+            "(503) 519-8808"
+         ],
+         "title":[  
+            "IT Manager"
+         ]
+      },
+      {  
+         "phone_user_name":[  
+            "Jim Harrison"
+         ],
+         "wireless_number":[  
+            "(503) 449-7135"
+         ],
+         "title":[  
+            "Data Analyst"
+         ]
+      }
+   ]
+}
