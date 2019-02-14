@@ -42,7 +42,6 @@ export class HomePage {
     var employees;
     this.search.getPresetEmployees()
      .subscribe(data => {
-       console.log(data)
        employees = data;
         this.employees$ = employees;
         console.log (this.employees$);
