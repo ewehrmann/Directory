@@ -64,14 +64,6 @@ export class HomePage {
     });
   }
 
-  sendSms(person_sms) {
-    this.sms.send(person_sms, '').then(()=>{
-      console.log('successful')
-    }).catch((err)=>{
-      alert(JSON.stringify(err))
-    });
-  }
-
   clearFilter() {
     this.letter = '';
   }
@@ -81,8 +73,12 @@ export class HomePage {
     this.letter = letter;
   }
 
-  goToSlide(number) {
-    this.slides.slideTo(number);
+  advanceSlides() {
+    this.slides.slideTo(this.slides.getActiveIndex() + 9);
+  }
+
+  backupSlides() {
+    this.slides.slideTo(this.slides.getActiveIndex() - 9);
   }
 
   toggleFirst() {
